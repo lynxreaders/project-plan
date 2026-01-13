@@ -1,4 +1,4 @@
-# LynxReaders Platform - University Project Report
+# LynxReaders Platform - University Project
 
 ## Executive Summary
 
