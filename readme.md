@@ -1441,8 +1441,7 @@ Full API documentation available at: https://backendmaster.lynxreaders.com/api-d
 ### C. Repository Links
 
 - Main Repository: github.com/lynxreaders/lynxreaders-app
-- Documentation: github.com/lynxreaders/docs
-- AI Models: github.com/lynxreaders/ai-models
+- Documentation: github.com/lynxreaders/project-plan/
 
 ### D. Team Members
 
@@ -1463,71 +1462,4 @@ Full API documentation available at: https://backendmaster.lynxreaders.com/api-d
 7. AWS Best Practices - https://aws.amazon.com/architecture
 8. Stripe API Reference - https://stripe.com/docs/api
 
----
-
-## Screenshots Checklist
-
-Please upload screenshots for the following placeholders:
-
-### General Platform
-- [ ] LynxReaders homepage
-- [ ] System architecture diagram
-- [ ] Security architecture diagram
-
-### User Role
-- [ ] User registration page
-- [ ] Book browsing interface
-- [ ] Shopping cart and checkout
-- [ ] Order tracking page
-- [ ] Chatbot interaction
-
-### Seller Role
-- [ ] Seller dashboard
-- [ ] Inventory management interface
-- [ ] Order processing screen
-- [ ] Sales analytics dashboard
-
-### Admin Role
-- [ ] User management panel
-- [ ] Category management
-- [ ] Platform analytics dashboard
-
-### Call Center
-- [ ] Chatwoot interface
-- [ ] Agent dashboard
-
-### E-Delivery
-- [ ] E-Delivery integration diagram
-- [ ] Delivery tracking interface
-
-### AI Chatbot
-- [ ] Chatbot UI
-- [ ] AI architecture diagram
-- [ ] Notification example
-- [ ] Chatbot interaction flow
-
-### UML Diagrams
-- [ ] Use case diagram
-- [ ] Class diagram
-- [ ] Sequence diagram (order placement)
-- [ ] Sequence diagram (chatbot)
-- [ ] Activity diagram
-- [ ] Component diagram
-- [ ] Deployment diagram
-- [ ] ERD diagram
-- [ ] State diagram
-
-### Development & Deployment
-- [ ] VS Code workspace
-- [ ] Server architecture diagram
-- [ ] CI/CD pipeline diagram
-
----
-
-**Document Version**: 1.0  
-**Last Updated**: [Current Date]  
-**Prepared By**: [Your Name]  
-**University**: [University Name]  
-**Course**: [Course Name]  
-**Supervisor**: [Supervisor Name]
 
