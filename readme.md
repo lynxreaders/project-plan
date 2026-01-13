@@ -42,7 +42,6 @@ LynxReaders is a modern, full-stack e-commerce platform designed specifically fo
 - **Multi-Role System**: Separate interfaces for users, sellers, and admins
 - **Real-Time Notifications**: WebSocket-based updates for orders and preferences
 - **AI-Powered Chatbot**: TensorFlow.js-based intelligent assistant
-- **Secure Payment Processing**: Stripe integration for transactions
 - **E-Delivery Integration**: Third-party delivery company for order fulfillment
 - **Responsive Design**: Mobile-first approach for all user interfaces
 - **Cloud Storage**: AWS S3 for book covers and media files
@@ -233,7 +232,6 @@ LynxReaders/
 
 ### 2.8 Additional Technologies
 
-- **Stripe**: Payment processing
 - **Chatwoot**: Customer support platform
 - **Socket.io**: Real-time WebSocket communication
 - **JWT**: Authentication tokens
@@ -268,13 +266,11 @@ LynxReaders follows a microservices architecture pattern where each service is i
    - User Service: User authentication and profiles
    - Seller Service: Seller management and book listings
    - Order Service: Order processing and tracking
-   - Payment Service: Stripe integration
    - Notification Service: Email and push notifications
    - AI Service: Chatbot and recommendations
 
 4. **External Integrations**
    - E-Delivery API: Delivery tracking
-   - Stripe API: Payment processing
    - Chatwoot: Customer support
    - AWS S3: File storage
    - MongoDB Atlas: Database
@@ -345,7 +341,6 @@ The User role represents customers who browse and purchase books from the platfo
 - Apply discount codes
 - View order summary
 - Multiple payment methods:
-  - Credit/debit cards (Stripe)
   - Digital wallets
 - Shipping address management
 
@@ -980,7 +975,7 @@ ChatMessage
 **[PLACEHOLDER: Add sequence diagram for order placement]**
 
 ```
-Customer → User-UI → API Gateway → Order Service → Payment Service → Stripe
+Customer → User-UI → API Gateway → Order Service →
                                                                         ↓
 Customer ← Email ← Notification Service ← Order Service ← Payment Confirmed
                                               ↓
@@ -1030,7 +1025,7 @@ User ← Chatbot UI ← WebSocket ← AI Service (Response)
 - API Gateway
 - Microservices Layer
 - Database Layer (MongoDB, Redis)
-- External Services (Stripe, E-Delivery, AWS)
+- External Services (E-Delivery, AWS)
 - AI/ML Layer (TensorFlow)
 
 ### 7.7 Deployment Diagram
@@ -1294,7 +1289,7 @@ LynxReaders successfully delivers a comprehensive e-commerce platform for books 
 
 1. **Multi-Role System**: Implemented distinct interfaces and functionalities for users, sellers, administrators, and call center agents
 2. **Microservices Architecture**: Built scalable, maintainable services using modern technologies
-3. **Third-Party Integrations**: Successfully integrated E-Delivery, Stripe, Chatwoot, and AWS services
+3. **Third-Party Integrations**: Successfully integrated E-Delivery, Chatwoot, and AWS services
 4. **AI-Powered Features**: Developed intelligent chatbot using TensorFlow.js for recommendations and support
 5. **Real-Time Capabilities**: Implemented WebSocket-based notifications and tracking
 6. **Secure Platform**: Ensured data protection, PII security, and GDPR compliance
@@ -1459,6 +1454,6 @@ Full API documentation available at: https://backendmaster.lynxreaders.com/api-d
 5. Docker Documentation - https://docs.docker.com
 6. Microservices Patterns - Chris Richardson
 7. AWS Best Practices - https://aws.amazon.com/architecture
-8. Stripe API Reference - https://stripe.com/docs/api
+
 
 
