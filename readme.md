@@ -1,4 +1,4 @@
-# LynxReaders Platform - University Project
+# LynxReaders Platform - University Project Report
 
 ## Executive Summary
 
@@ -37,15 +37,14 @@ LynxReaders is a modern, full-stack e-commerce platform designed specifically fo
 - **Sellers** can list books, manage inventory, and process orders
 - **Administrators** oversee platform operations, user management, and analytics
 - **Call Center Agents** provide customer support through integrated Chatwoot system
-- **Delivery Partners** (E-Delivery) handle order fulfillment and tracking
 
 ### 1.2 Key Features
 
-- **Multi-Role System**: Separate interfaces for users, sellers, admins, and call center
+- **Multi-Role System**: Separate interfaces for users, sellers, and admins
 - **Real-Time Notifications**: WebSocket-based updates for orders and preferences
 - **AI-Powered Chatbot**: TensorFlow.js-based intelligent assistant
 - **Secure Payment Processing**: Stripe integration for transactions
-- **Delivery Tracking**: Integration with E-Delivery company
+- **E-Delivery Integration**: Third-party delivery company for order fulfillment
 - **Responsive Design**: Mobile-first approach for all user interfaces
 - **Cloud Storage**: AWS S3 for book covers and media files
 - **Email Notifications**: Automated SMTP-based communication
@@ -76,7 +75,7 @@ LynxReaders is a modern, full-stack e-commerce platform designed specifically fo
   - API Routes
   - App Router
   - Image Optimization
-- **Applications**: All four frontend applications (user-ui, seller-ui, admin-ui, delivery-ui)
+- **Applications**: Three frontend applications (user-ui, seller-ui, admin-ui)
 
 #### React 18
 - **Purpose**: UI component library
@@ -213,7 +212,6 @@ LynxReaders/
 │   ├── user-ui/          # Customer frontend
 │   ├── seller-ui/        # Seller dashboard
 │   ├── admin-ui/         # Admin panel
-│   ├── delivery-ui/      # Delivery interface
 │   ├── api-gateway/      # API Gateway
 │   ├── user-service/     # User management
 │   ├── seller-service/   # Seller operations
@@ -266,7 +264,6 @@ LynxReaders follows a microservices architecture pattern where each service is i
    - User UI: https://lynxreaders.com
    - Seller UI: https://merchant.lynxreaders.com
    - Admin UI: https://call-center.lynxreaders.com
-
 
 3. **Backend Services**
    - User Service: User authentication and profiles
@@ -646,7 +643,9 @@ Chatwoot is an open-source customer support platform that provides live chat, em
 
 ### 5.1 Overview
 
-LynxReaders integrates with E-Delivery, a third-party logistics company, to handle all order fulfillment and delivery tracking. This integration ensures reliable shipping and real-time tracking for customers.
+LynxReaders integrates with E-Delivery, an external third-party logistics company, to handle all order fulfillment and delivery tracking. E-Delivery is not part of the LynxReaders platform but operates as an independent delivery service provider. This integration ensures reliable shipping and real-time tracking for customers without the need to build an internal delivery system.
+
+**Note**: LynxReaders does NOT have its own delivery service or delivery interface. All delivery operations are handled exclusively by E-Delivery through API integration.
 
 ### 5.2 Integration Architecture
 
@@ -897,7 +896,7 @@ socket.on('notification:new-match', (book) => {
 - Seller (Merchant)
 - Administrator
 - Call Center Agent
-- E-Delivery System
+- E-Delivery System (External)
 - AI Chatbot
 
 **Use Cases**:
@@ -966,14 +965,6 @@ Admin
 + manageUsers()
 + approveBooks()
 + viewReports()
-
-Delivery
-- id: string
-- orderId: string
-- trackingId: string
-- status: DeliveryStatus
-+ track()
-+ updateStatus()
 
 ChatMessage
 - id: string
@@ -1063,12 +1054,13 @@ User ← Chatbot UI ← WebSocket ← AI Service (Response)
 **Entities**:
 - Users (1:M with Orders, Reviews, Conversations)
 - Books (M:1 with Sellers, 1:M with Reviews, M:M with Categories)
-- Orders (M:1 with Users, 1:M with OrderItems, 1:1 with Deliveries)
+- Orders (M:1 with Users, 1:M with OrderItems)
 - Categories (M:M with Books)
 - Reviews (M:1 with Users, M:1 with Books)
 - Sellers (1:M with Books, 1:M with Orders)
-- Deliveries (1:1 with Orders)
 - Conversations (M:1 with Users, 1:M with Messages)
+
+**Note**: E-Delivery tracking information is stored in Orders table as external reference (eDeliveryTrackingId), not as separate entity.
 
 ### 7.9 State Diagram - Order Status
 
@@ -1199,7 +1191,6 @@ User ← Chatbot UI ← WebSocket ← AI Service (Response)
 - lynxreaders.com → User Frontend
 - merchant.lynxreaders.com → Seller Dashboard
 - call-center.lynxreaders.com → Admin Panel
-- delivery.lynxreaders.com → Delivery Interface
 - backendmaster.lynxreaders.com → API Gateway (Production)
 - backend-staging.lynxreaders.com → API Gateway (Staging)
 
