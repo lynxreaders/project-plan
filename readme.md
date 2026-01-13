@@ -5,7 +5,6 @@
 LynxReaders is a comprehensive online bookstore platform that connects readers, sellers, and administrators in a unified ecosystem. Built with modern microservices architecture, the platform provides seamless book browsing, purchasing, delivery tracking, and AI-powered recommendations through an intelligent chatbot system.
 
 **Project Type**: E-Commerce Platform for Books  
-**Development Period**: 2024  
 **Team Size**: [Add team size]  
 **Development Environment**: Visual Studio Code  
 **Version Control**: Git & GitHub
